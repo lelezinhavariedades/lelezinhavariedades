@@ -6,22 +6,93 @@
 <title>Lelezinha Variedades</title>
 
 <style>
-:root{ --rosa:#E91E63; --amarelo:#FFC107; }
-body{ margin:0; font-family:Arial,sans-serif; background:#f7f7f7; color:#1a1a1a; }
-header{ background:var(--rosa); padding:20px; text-align:center; }
-header img{ width:110px; border-radius:50%; }
-header h1{ color:#fff; font-size:22px; margin:10px 0 0; }
-section{ padding:15px; }
-h2{ background:var(--amarelo); padding:10px; border-radius:8px; font-size:18px; margin-top:25px; }
-
-a.produto{
-  display:block; background:#fff; margin:12px 0; padding:12px;
-  border-radius:12px; text-decoration:none; color:#000;
-  box-shadow:0 2px 6px rgba(0,0,0,.1);
+:root{
+  --rosa:#E91E63;
+  --amarelo:#FFC107;
+  --cinza:#f5f5f5;
 }
-a.produto img{ width:100%; border-radius:10px; display:block; }
-a.produto strong{ display:block; margin-top:8px; font-size:15px; }
-a.produto span{ display:block; font-size:13px; margin-top:4px; }
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f7f7f7;
+  color:#1a1a1a;
+}
+
+/* TOPO */
+header{
+  background:var(--rosa);
+  padding:16px;
+  text-align:center;
+}
+header img{
+  width:100px;
+  border-radius:50%;
+}
+header h1{
+  color:#fff;
+  font-size:20px;
+  margin:8px 0 0;
+}
+
+/* GRID DE CATEGORIAS */
+.categorias{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  padding:15px;
+  background:#fff;
+}
+
+.categoria-item{
+  text-align:center;
+  text-decoration:none;
+  color:#000;
+}
+
+.categoria-item img{
+  width:64px;
+  height:64px;
+  object-fit:contain;
+}
+
+.categoria-item span{
+  display:block;
+  margin-top:6px;
+  font-size:12px;
+  line-height:1.2;
+}
+
+/* SEÇÕES */
+section{
+  width:100%;
+  height:150px;
+  background:#fff;
+  margin:15px;
+  border-radius:12px;
+  padding:12px;
+  display:flex;
+  align-items:flex-start;
+}
+
+.section-header{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.section-header img{
+  width:22px;
+  height:22px;
+}
+
+.section-header h2{
+  font-size:14px;
+  margin:0;
+  font-weight:bold;
+}
 </style>
 </head>
 
@@ -32,37 +103,107 @@ a.produto span{ display:block; font-size:13px; margin-top:4px; }
   <h1>Lelezinha Variedades</h1>
 </header>
 
-<div id="produtos"></div>
+<!-- CATEGORIAS -->
+<div class="categorias">
 
-<script>
-fetch('data/produtos.json')
-  .then(r => r.json())
-  .then(lista => {
-    const root = document.getElementById('produtos');
-    const cats = {};
+<a class="categoria-item" href="#auto-moto">
+  <img src="assets/icones/Auto & Moto.png">
+  <span>Auto &<br>Moto</span>
+</a>
 
-    lista.forEach(p => {
-      (cats[p.categoria] ||= []).push(p);
-    });
+<a class="categoria-item" href="#beleza">
+  <img src="assets/icones/Beleza & Cuidados.png">
+  <span>Beleza &<br>Cuidados</span>
+</a>
 
-    Object.keys(cats).forEach(cat => {
-      const sec = document.createElement('section');
-      sec.innerHTML = `<h2>🧥 ${cat}</h2>`;
+<a class="categoria-item" href="#casa">
+  <img src="assets/icones/Casa & Eletros.png">
+  <span>Casa &<br>Eletros</span>
+</a>
 
-      cats[cat].forEach(p => {
-        sec.innerHTML += `
-          <a class="produto" href="${p.link}">
-            <img src="assets/imagens/${p.imagem}" alt="${p.titulo}">
-            <strong>${p.titulo}</strong>
-            <span>${p.descricao}</span>
-          </a>
-        `;
-      });
+<a class="categoria-item" href="#tech">
+  <img src="assets/icones/Celulares & Tech.png">
+  <span>Celulares &<br>Tech</span>
+</a>
 
-      root.appendChild(sec);
-    });
-  });
-</script>
+<a class="categoria-item" href="#esporte">
+  <img src="assets/icones/Esporte & Kids.png">
+  <span>Esporte &<br>Kids</span>
+</a>
+
+<a class="categoria-item" href="#ofertas">
+  <img src="assets/icones/Ofertas do Dia.png">
+  <span>Ofertas do<br>Dia</span>
+</a>
+
+<a class="categoria-item" href="#papelaria">
+  <img src="assets/icones/Papelaria & Escritorio.png">
+  <span>Papelaria &<br>Escritório</span>
+</a>
+
+<a class="categoria-item" href="#roupas">
+  <img src="assets/icones/Roupas & Acessorios.png">
+  <span>Roupas &<br>Acessórios</span>
+</a>
+
+</div>
+
+<!-- SEÇÕES -->
+<section id="auto-moto">
+  <div class="section-header">
+    <img src="assets/icones/Auto & Moto.png">
+    <h2>Auto & Moto</h2>
+  </div>
+</section>
+
+<section id="beleza">
+  <div class="section-header">
+    <img src="assets/icones/Beleza & Cuidados.png">
+    <h2>Beleza & Cuidados</h2>
+  </div>
+</section>
+
+<section id="casa">
+  <div class="section-header">
+    <img src="assets/icones/Casa & Eletros.png">
+    <h2>Casa & Eletros</h2>
+  </div>
+</section>
+
+<section id="tech">
+  <div class="section-header">
+    <img src="assets/icones/Celulares & Tech.png">
+    <h2>Celulares & Tech</h2>
+  </div>
+</section>
+
+<section id="esporte">
+  <div class="section-header">
+    <img src="assets/icones/Esporte & Kids.png">
+    <h2>Esporte & Kids</h2>
+  </div>
+</section>
+
+<section id="ofertas">
+  <div class="section-header">
+    <img src="assets/icones/Ofertas do Dia.png">
+    <h2>Ofertas do Dia</h2>
+  </div>
+</section>
+
+<section id="papelaria">
+  <div class="section-header">
+    <img src="assets/icones/Papelaria & Escritorio.png">
+    <h2>Papelaria & Escritório</h2>
+  </div>
+</section>
+
+<section id="roupas">
+  <div class="section-header">
+    <img src="assets/icones/Roupas & Acessorios.png">
+    <h2>Roupas & Acessórios</h2>
+  </div>
+</section>
 
 </body>
 </html>
