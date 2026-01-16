@@ -17,7 +17,7 @@ body{
 /* ================= TOPBAR ================= */
 .topbar{
   background:var(--rosa);
-  padding:16px 14px 18px;
+  padding:16px 14px 22px;
   text-align:center;
 }
 
@@ -33,7 +33,7 @@ body{
   background:#fff;
   border-radius:24px;
   padding:10px 14px;
-  margin:0 auto 8px;
+  margin:0 auto 12px;
   max-width:420px;
 }
 
@@ -50,9 +50,26 @@ body{
   width:100%;
 }
 
-.nome-loja{
+/* TEXTO DE DESTAQUE */
+.destaque-topo{
+  max-width:460px;
+  margin:0 auto;
+}
+
+.destaque-topo .linha{
+  margin:4px 0;
   font-size:13px;
   color:#fff;
+}
+
+.destaque-topo .linha.forte{
+  font-size:14px;
+  font-weight:bold;
+}
+
+.destaque-topo .linha.selo{
+  margin-top:8px;
+  font-size:12px;
   opacity:.9;
 }
 
