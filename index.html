@@ -24,72 +24,92 @@
     <img src="assets/icones/Auto & Moto.png">
     <span>Auto &<br>Moto</span>
   </a>
-  <a href="#beleza" class="categoria">
+  <a href="#beleza-cuidados" class="categoria">
     <img src="assets/icones/Beleza & Cuidados.png">
     <span>Beleza &<br>Cuidados</span>
   </a>
-  <a href="#casa" class="categoria">
+  <a href="#casa-eletros" class="categoria">
     <img src="assets/icones/Casa & Eletros.png">
     <span>Casa &<br>Eletros</span>
   </a>
-  <a href="#celulares" class="categoria">
+  <a href="#celulares-tech" class="categoria">
     <img src="assets/icones/Celulares & Tech.png">
     <span>Celulares &<br>Tech</span>
   </a>
-  <a href="#roupas" class="categoria">
+  <a href="#roupas-acessorios" class="categoria">
     <img src="assets/icones/Roupas & Acessorios.png">
     <span>Roupas &<br>Acessórios</span>
   </a>
-  <a href="#papelaria" class="categoria">
+  <a href="#papelaria-escritorio" class="categoria">
     <img src="assets/icones/Papelaria & Escritorio.png">
     <span>Papelaria &<br>Escritório</span>
   </a>
-  <a href="#esporte" class="categoria">
+  <a href="#esporte-kids" class="categoria">
     <img src="assets/icones/Esporte & Kids.png">
     <span>Esporte &<br>Kids</span>
   </a>
 </nav>
 
-<!-- PRODUTOS -->
-<main id="produtos"></main>
+<!-- SEÇÕES (SEM PRODUTOS POR ENQUANTO) -->
+<main>
 
-<script>
-fetch('data/produtos.json')
-  .then(r => r.json())
-  .then(lista => {
-    const root = document.getElementById('produtos');
-    const grupos = {};
+<section id="ofertas" class="secao">
+  <h2>
+    <img src="assets/icones/Ofertas do Dia.png">
+    <span>Ofertas do Dia</span>
+  </h2>
+</section>
 
-    lista.forEach(p => {
-      (grupos[p.categoria] ||= []).push(p);
-    });
+<section id="auto-moto" class="secao">
+  <h2>
+    <img src="assets/icones/Auto & Moto.png">
+    <span>Auto & Moto</span>
+  </h2>
+</section>
 
-    Object.keys(grupos).forEach(cat => {
-      const sec = document.createElement('section');
-      sec.id = cat.toLowerCase().replace(/\s+/g,'-');
-      sec.className = 'secao';
+<section id="beleza-cuidados" class="secao">
+  <h2>
+    <img src="assets/icones/Beleza & Cuidados.png">
+    <span>Beleza & Cuidados</span>
+  </h2>
+</section>
 
-      sec.innerHTML = `
-        <h2>
-          <img src="assets/icones/${cat}.png">
-          <span>${cat}</span>
-        </h2>
-      `;
+<section id="casa-eletros" class="secao">
+  <h2>
+    <img src="assets/icones/Casa & Eletros.png">
+    <span>Casa & Eletros</span>
+  </h2>
+</section>
 
-      grupos[cat].forEach(p => {
-        sec.innerHTML += `
-          <a class="produto" href="${p.link}" target="_blank">
-            <img src="assets/imagens/${p.imagem}">
-            <strong>${p.titulo}</strong>
-            <span>${p.descricao}</span>
-          </a>
-        `;
-      });
+<section id="celulares-tech" class="secao">
+  <h2>
+    <img src="assets/icones/Celulares & Tech.png">
+    <span>Celulares & Tech</span>
+  </h2>
+</section>
 
-      root.appendChild(sec);
-    });
-  });
-</script>
+<section id="roupas-acessorios" class="secao">
+  <h2>
+    <img src="assets/icones/Roupas & Acessorios.png">
+    <span>Roupas & Acessórios</span>
+  </h2>
+</section>
+
+<section id="papelaria-escritorio" class="secao">
+  <h2>
+    <img src="assets/icones/Papelaria & Escritorio.png">
+    <span>Papelaria & Escritório</span>
+  </h2>
+</section>
+
+<section id="esporte-kids" class="secao">
+  <h2>
+    <img src="assets/icones/Esporte & Kids.png">
+    <span>Esporte & Kids</span>
+  </h2>
+</section>
+
+</main>
 
 </body>
 </html>
