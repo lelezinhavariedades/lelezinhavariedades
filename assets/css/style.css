@@ -3,6 +3,10 @@
   --amarelo:#FFC107;
 }
 
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   font-family:Arial, sans-serif;
@@ -10,23 +14,25 @@ body{
   color:#1a1a1a;
 }
 
-/* TOPO */
+/* ================= TOPO ================= */
 .topo{
   background:var(--rosa);
   text-align:center;
   padding:18px;
 }
+
 .topo img{
   width:110px;
   border-radius:50%;
 }
+
 .topo h1{
   color:#fff;
   font-size:22px;
   margin:8px 0 0;
 }
 
-/* CATEGORIAS */
+/* ================= CATEGORIAS ================= */
 .categorias{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -49,27 +55,25 @@ body{
 }
 
 .categoria span{
+  display:block;
   font-size:13px;
   line-height:1.1;
   margin-top:4px;
-  display:block;
 }
 
-/* SEÇÕES */
+/* ================= SEÇÕES ================= */
 .secao{
   width:100%;
   height:150px;
   padding:15px;
-  box-sizing:border-box;
 }
 
 .secao h2{
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   gap:8px;
-  font-size:14px;
   background:var(--amarelo);
-  padding:8px 12px;
+  padding:10px 12px;
   border-radius:8px;
   margin:0;
 }
@@ -77,10 +81,22 @@ body{
 .secao h2 img{
   width:22px;
   height:22px;
+  margin-top:2px;
 }
 
-.secao p{
-  margin:8px 2px 0;
-  font-size:13px;
+.secao .titulo{
+  display:flex;
+  flex-direction:column;
+}
+
+.secao .titulo span{
+  font-size:14px;
+  line-height:1.2;
+}
+
+.secao .titulo small{
+  font-size:12px;
+  line-height:1.2;
   color:#333;
+  margin-top:2px;
 }
