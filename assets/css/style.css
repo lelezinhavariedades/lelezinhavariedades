@@ -71,9 +71,16 @@ body{
   background:var(--amarelo);
   padding:8px 12px;
   border-radius:8px;
+  margin:0;
 }
 
 .secao h2 img{
   width:22px;
   height:22px;
+}
+
+.secao p{
+  margin:8px 2px 0;
+  font-size:13px;
+  color:#333;
 }
